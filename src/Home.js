@@ -3,6 +3,7 @@ import { io } from "socket.io-client";
 import ChatContainer from "./container/ChatContainer";
 import Navbar from "./navbar/Navbar";
 import "./App.css";
+
 import TextContainer from "./TextContainer/TextContainer";
 let socket = "";
 const Home = (props) => {
@@ -44,17 +45,16 @@ const Home = (props) => {
       setUsers(users);
     });
 
-    socket.on("message", (message) => {
-      console.log("user", message);
-      setMessages([...messages, message]);
+    socket.on("message", (mes) => {
+      console.log("message coming", mes);
+      setMessages([...messages, mes]);
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [name, room]);
+  }, [messages, name, room]);
 
   const sendMessage = (e) => {
     e.preventDefault();
     socket.emit("sendMessage", message, () => {
-      setMessages("");
+      setMessage("");
     });
     //console.log(message);
   };
@@ -63,11 +63,13 @@ const Home = (props) => {
     <div className="App__container">
       <div className="container m-4">
         <Navbar room={room} />
+
         <ChatContainer
           messageHandler={sendMessage}
           messages={messages}
           setMessage={setMessage}
           message={message}
+          name={name}
         />
       </div>
       <TextContainer users={users} />

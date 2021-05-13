@@ -1,9 +1,26 @@
 import React from "react";
 import "./ChatContainer.css";
-const ChatContainer = ({ messages, messageHandler, setMessage, message }) => {
+import ScrollToBottom from "react-scroll-to-bottom";
+import Message from "../message/Message";
+
+const ChatContainer = ({
+  messages,
+  messageHandler,
+  setMessage,
+  message,
+  name,
+}) => {
+  console.log("messages", messages);
   return (
     <div className="chat">
-      <div className="chat-container"></div>
+      <div className="chat-container">
+        <ScrollToBottom className="message__list">
+          {messages?.map((res, i) => (
+            <Message name={name} message={res} key={i} />
+          ))}
+        </ScrollToBottom>
+      </div>
+
       <form className="text__input" onSubmit={(e) => messageHandler(e)}>
         <input
           type="text"
