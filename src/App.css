@@ -1,4 +1,4 @@
-.App {
-  display: grid;
-  place-items: center;
+.App__container {
+  display: flex;
+  justify-content: space-around;
 }
