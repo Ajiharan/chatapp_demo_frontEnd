@@ -1,0 +1,24 @@
+.message {
+}
+.right__message {
+  margin: 20px;
+
+  display: flex;
+  width: auto;
+  justify-content: flex-end;
+}
+.right__text {
+  border-radius: 25px;
+  padding: 8px;
+  background-color: rgb(151, 243, 250);
+}
+.left_message {
+  display: flex;
+  margin: 20px;
+}
+.left__text {
+  flex-direction: column;
+  padding: 8px;
+  border-radius: 25px;
+  background-color: rgb(169, 255, 208);
+}

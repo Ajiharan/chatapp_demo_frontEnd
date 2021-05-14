@@ -1,17 +1,18 @@
 import React from "react";
 import "./Message.css";
 const Message = ({ message, name }) => {
-  console.log("message", message);
   return (
     <div className="message">
-      {message?.name === name ? (
+      {message?.user === name ? (
         <div className="right__message">
-          <p className="lead">{message?.text}</p>
+          <p className="right__text">{message?.text}</p>
         </div>
       ) : (
         <div className="left_message">
-          <p>{message?.name}</p>
-          <p className="lead">{message?.text}</p>
+          <div className="left__text">
+            <p>{message?.user}</p>
+            <p className="lead">{message?.text}</p>
+          </div>
         </div>
       )}
     </div>

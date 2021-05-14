@@ -46,10 +46,14 @@ const Home = (props) => {
     });
 
     socket.on("message", (mes) => {
-      console.log("message coming", mes);
-      setMessages([...messages, mes]);
+      // console.log("message coming", mes);
+      // console.log("messagessss coming", messages);
+      // setMessages([...messages, mes]);
+      setMessages((prev) => {
+        return [...prev, mes];
+      });
     });
-  }, [messages, name, room]);
+  }, [name, room]);
 
   const sendMessage = (e) => {
     e.preventDefault();
