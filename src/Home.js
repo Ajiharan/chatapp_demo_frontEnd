@@ -3,10 +3,10 @@ import { io } from "socket.io-client";
 import ChatContainer from "./container/ChatContainer";
 import Navbar from "./navbar/Navbar";
 import "./App.css";
-
 import TextContainer from "./TextContainer/TextContainer";
 let socket = "";
 const Home = (props) => {
+  console.log("Home container initialize");
   const ENDPOINT = "http://localhost:5000";
   const [name, setName] = useState("");
   const [room, setRoom] = useState("");
@@ -15,7 +15,7 @@ const Home = (props) => {
   const [message, setMessage] = useState("");
   useEffect(() => {
     if (props?.location?.state) {
-      console.log("search", props.location);
+      // console.log("search", props.location);
       setRoom(props.location.state.room);
       setName(props.location.state.name);
     }
@@ -41,7 +41,7 @@ const Home = (props) => {
   }, [name, room]);
   useEffect(() => {
     socket.on("roomData", ({ users }) => {
-      console.log("users", users);
+      // console.log("users", users);
       setUsers(users);
     });
 

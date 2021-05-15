@@ -1,6 +1,7 @@
 import React from "react";
 import "./Message.css";
 const Message = ({ message, name }) => {
+  console.log("message initialize");
   return (
     <div className="message">
       {message?.user === name ? (
@@ -19,4 +20,4 @@ const Message = ({ message, name }) => {
   );
 };
 
-export default Message;
+export default React.memo(Message);

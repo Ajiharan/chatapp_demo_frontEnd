@@ -10,7 +10,7 @@ const ChatContainer = ({
   message,
   name,
 }) => {
-  console.log("messages", messages);
+  console.log("Chatcontainer initialize");
   return (
     <div className="chat">
       <div className="chat-container">
